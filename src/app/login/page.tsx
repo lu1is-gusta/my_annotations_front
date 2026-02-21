@@ -30,7 +30,7 @@ export default function LoginPage() {
       }
 
       // Laravel Sanctum retorna o token em data.token ou data.access_token
-      const token = data?.token || data?.access_token;
+      const token = data?.token || data?.access_token || data?.data;
       if (token) {
         localStorage.setItem('auth_token', token);
         router.push('/');
