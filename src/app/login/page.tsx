@@ -50,7 +50,7 @@ export default function LoginPage() {
       const data = await res.json();
       if (!res.ok) { setError(data?.message || 'Email ou senha inválidos.'); return; }
 
-      const token = data?.token || data?.access_token || data?.data;
+      const token = data?.token || data?.access_token || data?.data || data?.user_data;
       if (!token) { setError('Token não encontrado na resposta da API.'); return; }
 
       saveToken(token);

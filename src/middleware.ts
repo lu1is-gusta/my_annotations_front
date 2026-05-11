@@ -11,14 +11,14 @@ export function middleware(request: NextRequest) {
 
   // Sem token em rota protegida → login
   if (!token && !isPublic) {
-    const loginUrl = new URL('/login', request.url);
-    loginUrl.searchParams.set('redirect', pathname);
-    return NextResponse.redirect(loginUrl);
+    // const loginUrl = new URL('/login', request.url);
+    // loginUrl.searchParams.set('redirect', pathname);
+    // return NextResponse.redirect(loginUrl);
   }
 
   // Com token tentando acessar login → index
   if (token && isPublic) {
-    return NextResponse.redirect(new URL('/', request.url));
+    // return NextResponse.redirect(new URL('/', request.url));
   }
 
   return NextResponse.next();
